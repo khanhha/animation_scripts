@@ -33,7 +33,7 @@
 # convert fbx to individual obj frames
 #
 # usage:
-#    blender --background --python fbxToObj.py -- <fbx input> <output prefix>
+#    blender --background --python ./fbxToObj.py --fbx_file path_to_input_fbx_file --out_rest_fbx_file path_to_ouput_fbx_file --add_rest --out_obj_dir path_to_output_obj_folder --frame_idx 100
 #
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 import bpy
@@ -51,11 +51,7 @@ def select_single_obj(target_obj):
         c.select = True
     bpy.context.scene.objects.active = target_obj
     
-    
-def Usage():
-    print("Usage: blender --background --python fbxToObj.py -- <fbx input> {-add_rest} <output folder>")
-    sys.exit(0)
-    
+        
 if not G_debug:    
     ap = argparse.ArgumentParser()
     ap.add_argument("--background",  required=True, action='store_true', help="dummy argument to get around blender")
